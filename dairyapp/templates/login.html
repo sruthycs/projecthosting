@@ -1,0 +1,40 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lOGIN FORM</title>
+
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+
+    <div class="center">
+        <h1>Login</h1>
+        <form action="{% url 'login' %}" method ="post">
+      {% csrf_token %}
+<!--        <form method="post">-->
+<!--            {% csrf_token %}-->
+            <div class="txt_field">
+                <input type="text" required name="username" name="username" autocomplete="off" >
+                <span></span>
+                <label>username</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" required name="password" name="password">
+                <span></span>
+                <label>password</label><br>
+            </div>
+            <div class="pass"><a href="{% url 'password_reset' %}">forgot password?</a></div>
+
+            <input type="submit" value="login"><br>
+<!--            <a href="{% url 'shopping' %}"></a>-->
+            <div class="signup_link"><br>
+              Not a member?  <a href="{% url 'register' %}">signup</a>
+
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

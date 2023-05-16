@@ -1,0 +1,188 @@
+{% extends 'index.html'%}
+{% load static %}
+{% block content %}
+<div>
+    <p class="text-center my_search_text">You have searched for :<b>"{{query}}"</b></p>
+</div>
+
+
+<html>
+    <head>
+        <title>product</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial scale=1.0">
+<!--        <link rel="stylesheet" href="<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">-->
+        <link rel="stylesheet" href="product.css">
+        </head>
+        <body>
+
+
+            <div class="gallery">
+                {% for product in products %}
+             <div class="content">
+
+                    <img src="{{product.prd_img.url}}">
+                    <h3>{{product.prd_name}}</h3>
+                    <p>{{product.prd_description}}</p>
+                 <h6>₹ {{product.prd_price}}</h6>
+ <a href="{% url 'add_wishlist' product.id %}">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+</svg>
+
+                    <ul>
+              </ul>
+                    <a href="{% url 'addcart' product.id %}">
+
+                        <button class="buy-1" type="submit">Add to Cart</button></a>
+
+             </div>
+
+
+{% endfor %}
+
+            </div>
+
+
+
+<!--<div class="container">-->
+<!--    <div class="row mx_auto">-->
+<!--        {% for product in products %}-->
+<!--        <div class="my_bottom_margin col-9 col-sm-12 col-md-4 xol-lg-4">-->
+<!--            <div class="polaroid" style="min-width:18rem;">-->
+<!--                <a href="{{product.get_url}}"><img class="card-img-top my_image" src="{{product.prd_img.url}}" alt="{{product.name}}"></a>-->
+<!--            <div class="card-body">-->
+<!--                <h4>{{product.prd_name}}</h4>-->
+<!--                <p>{{product.prd_price}}</p>-->
+<!--                {% if product.stock <= 0 %}-->
+<!--        <p class="text-justify my_prod_text"><b><font color="red">Out of Stock</font> </b></p>-->
+<!--        {% else %}-->
+
+<!--  <a class="button" href="">Add to Cart</a>-->
+<!--        {% endif %}-->
+<!--            </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        {% empty %}-->
+<!--        <div class="row mx-auto">-->
+<!--            <p class="text-center my_search_text">0 Results found</p>-->
+<!--        </div>-->
+<!--        {% endfor %}-->
+<!--    </div>-->
+<!--</div>-->
+            <style>body{
+    margin: 0;
+    font-family: sans-serif;
+    background: #f2f2f2;
+}
+h3{
+    text-align: center;
+    font-size: 30px;
+    margin: 0;
+    padding-top: 10px;
+}
+a{
+    text-decoration: none;
+
+}
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content:center;
+    align-items: center;
+    margin: 50px 0;
+
+}
+.content{
+    width: 20%;
+    margin: 15px;
+    box-sizing: border-box;
+    float:left;
+    text-align:center;
+    border-radius: 20px;
+    cursor: pointer;
+    padding-top: 10px;
+    box-shadow:0 14px 28px rgba(0,0,0,0),
+    0 10px 10px rgba(0,0,0,0.22);
+    transition: .4s;
+    background: #f2f2f2;
+}
+.content:hover{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16),
+    0 3px 6px rgba(0,0,0,0.23) ;
+    transform: translate(0px, -8px);
+}
+img{
+    width:200px;
+    height: 200px;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+}
+p{
+    text-align: center;
+    color: #b2bec3;
+    padding-top: 0 8px;
+}
+h6{
+    font-size: 26px;
+    text-align: center;
+    color:#222f3e;
+    margin:0;
+}
+ul{
+    list-style: none;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+
+}
+li{
+    padding-top:5px;
+}
+.fa{
+    font-size:26px;
+    transition: .4s;
+
+}
+.checked{
+    color: #ff9f43;
+}
+.fa:hover{
+   transform: scale(1,3);
+   transition: .6s;
+}
+button{
+    text-align: center;
+    font-size: 24px;
+    color:#fff;
+    width:100%;
+    padding: 15px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    margin-top:5px;
+    border-bottom-right-radius:20px ;
+    border-bottom-right-radius: 20px;
+}
+.buy-1{
+    background: #2183a2;
+}
+.buy-2{
+    background: #3b3e6e;
+}
+.buy-3{
+    background: #0b0b0b;
+}
+@media(max-width:1000px){
+    .content{
+        width: 45px;
+    }
+@media(max-width:750px){
+        .content{
+            width: 100px;
+        }
+}</style>
+{% endblock content %}

@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #0069d9;
+  justify-content: center;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0069d9;
+}
+
+</style>
+<body>
+<form method="post" action="{% url 'review' %}">
+  {% csrf_token %}
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" required>
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" required>
+  </div>
+  <div>
+    <label for="rating">Rating:</label>
+    <select name="rating" id="rating" required>
+      <option value="">Choose a rating</option>
+      <option value="1">1 star</option>
+      <option value="2">2 stars</option>
+      <option value="3">3 stars</option>
+      <option value="4">4 stars</option>
+      <option value="5">5 stars</option>
+    </select>
+  </div>
+  <div>
+    <label for="review">Review:</label>
+    <textarea name="review" id="review" rows="5" required></textarea>
+  </div>
+  <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>

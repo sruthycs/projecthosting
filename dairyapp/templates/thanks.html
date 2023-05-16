@@ -1,0 +1,54 @@
+{% extends 'index.html'%}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+  <head>
+
+    <style>
+body {
+  background-image: url("{% static 'images/cow.jpg' %}");
+   background-size: cover;
+}
+</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'narrow-jumbotron.css' %}" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'shopping' %}"> <span class="sr-only"></span></a>
+            </li>
+          </ul>
+        </nav>
+
+      </div>
+
+    <center>   <div class="jumbotron">
+       <h1 class="display-3">Thank You</h1>
+        <p class="lead">You will receive a link to The Product in your email</p>
+      </div>
+
+      <footer class="footer">
+        <p>Daily Dairy</p>
+      </footer></center>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>
+{% endblock content %}
